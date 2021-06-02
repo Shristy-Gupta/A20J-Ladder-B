@@ -1,0 +1,31 @@
+//B. Queue at the School
+#include <iostream>
+#include <utility>
+using namespace std;
+/* Utility function to print an array */
+void printArray(int arr[], int size)
+{
+   for (int i = 0; i < size; i++)
+   cout << arr[i];
+
+   cout << endl;
+}
+int main() {
+    int len,iteration;
+    cin>>len;
+    cin>>iteration;
+    string input;
+    cin>>input;
+    while(iteration--){
+        for(int i=0;i<len;i++){
+            if(input[i]=='B' && input[i+1]=='G'){
+                swap(input[i],input[i+1]);
+                i++;
+            }
+        }
+    }
+
+     cout<<input;
+
+    return 0;
+}
