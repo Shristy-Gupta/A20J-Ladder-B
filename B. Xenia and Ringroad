@@ -1,0 +1,28 @@
+//B. Xenia and Ringroad
+#include <iostream>
+#include <utility>
+using namespace std;
+/* Utility function to print an array */
+void printArray(int arr[], int size)
+{
+   for (int i = 0; i < size; i++)
+   cout << arr[i];
+
+   cout << endl;
+}
+int main() {
+    int num_of_house,m_jobs;
+    cin>>num_of_house;
+    cin>>m_jobs;
+    int given_Seq[m_jobs];
+    for(int i=0;i<m_jobs;i++){
+        cin>>given_Seq[i];
+    }
+   long long int ans=given_Seq[0]-1;
+   for(int i=1;i<m_jobs;i++){
+    ans+=(given_Seq[i]-given_Seq[i-1]+num_of_house)%num_of_house;
+   }
+
+   cout<<ans;
+    return 0;
+}
