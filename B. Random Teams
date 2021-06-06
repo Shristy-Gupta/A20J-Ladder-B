@@ -1,0 +1,35 @@
+//B. Random Teams
+#include <iostream>
+#include <utility>
+#include <bitset>
+using namespace std;
+/* Utility function to print an array */
+void printArray(int arr[], int size)
+{
+   for (int i = 0; i < size; i++)
+   cout << arr[i];
+
+   cout << endl;
+}
+
+int main() {
+   long long int n,m;
+   cin>>n>>m;
+   //n is number of participants m is number of teams
+   long long int min_element, max_element;
+   //for max number of group we will take 1 in m-1 group and the max of (n-m) will be forming the pair
+   //number of participants in the largest group will be n-(m-1)
+   // eg in 6, 3 --> 1 1 6-(3-1)--> 1 1 4
+   //Then simply apply n*(n-1)/2
+   max_element=(n-(m-1))*(n-(m-1)-1)/2;
+   //now for max element groups should be evenly distributed
+   //therefore each group will have 6/3-->2 people
+   //If there is residue/remainder we will consider that
+   min_element= (n%m)*(n/m+1)*(n/m +1 -1)/2 + (m-n%m)* (n/m)*((n/m)-1)/2;
+   // The first half is useful when n/m  has residue
+   // Eg 5, 3 --> 2 2 1-->2*2*1/2-->2 pair
+   // Why have we not considered only n(n-1)/2 and why taken residue?
+   // We need to consider total pairs of same size. Eg 2 2 1 --> number of pairs is 1 1 0--> This means max 2 such pairs exist with min pairs
+   cout<<min_element<<" "<<max_element;
+    return 0;
+}
