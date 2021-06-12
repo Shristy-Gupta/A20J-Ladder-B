@@ -1,0 +1,46 @@
+//B. DZY Loves Strings
+
+#include <iostream>
+#include <utility>
+#include <bitset>
+#include <bits/stdc++.h>
+#include <unordered_map>
+#include <cmath>
+
+using namespace std;
+
+/* Utility function to print an arrray */
+void printarrray(int arr[], int size)
+{
+   for (int i = 0; i < size; i++)
+   cout << arr[i];
+   cout << endl;
+}
+
+
+int main(){
+    string s; cin>>s;
+    int k;cin>>k;
+    int max_val=INT_MIN, val, ans=0;
+    int arr[27];
+    int n=s.length();
+    arr[0]=0;
+    for(int i=1;i<27;i++){
+            cin>> arr[i];
+
+            if(arr[i]>max_val){
+                max_val=arr[i];
+            }
+    }
+    for(int i=1;i<=n+k;i++){
+            if(i<=n){
+                ans+=arr[s[i-1]-'a'+1]*i;
+                    }
+            else{
+                ans+=max_val*i;
+            }
+    }
+    cout<<ans<<endl;
+
+    return 0;
+}
