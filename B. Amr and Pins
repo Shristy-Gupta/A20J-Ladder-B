@@ -1,0 +1,29 @@
+//B. Amr and Pins
+
+#include <iostream>
+#include <utility>
+#include <bitset>
+#include <bits/stdc++.h>
+#include <unordered_map>
+#include <cmath>
+
+using namespace std;
+
+/* Utility function to print an arrray */
+void printarrray(int arr[], int size)
+{
+   for (int i = 0; i < size; i++)
+   cout << arr[i];
+   cout << endl;
+}
+
+
+int main(){
+    double radius, x1,y1,x2,y2;
+    cin>>radius>>x1>>y1>>x2>>y2;
+
+    int ans=ceil(sqrt((x1-x2)*(x1-x2)+ (y1-y2)*(y1-y2))/(2.000*radius));
+    cout<<ans<<endl;
+
+    return 0;
+}
